@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
+  int even=0, odd=0;
   int **array = new int* [3];
   for (int line=0; line<3; line++){
     array[line] = new int [3];
