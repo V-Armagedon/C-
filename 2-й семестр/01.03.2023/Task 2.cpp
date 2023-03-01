@@ -41,4 +41,19 @@ int main() {
       cout << array[i][j] << "." << endl;
     }
   }
+  for(int i=0; i<3; i++){
+    for(int j=0; j<3; j++){
+      if (array[i][j]%2==0){
+        even++;
+      }else{
+        odd++;
+      }
+    }
+  }
+  cout << "Number of even numbers: " << even << endl;
+  cout << "Number of odd numbers: " << odd << endl;
+  
+  for (int line=0; line<3; line++){
+    delete [] array [line];
+  }
 }
