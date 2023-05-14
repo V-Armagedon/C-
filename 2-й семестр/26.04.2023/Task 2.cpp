@@ -59,6 +59,7 @@ void FlightBooking::reserveSeats(int ticket) {
   }
   cout << "-----------------------" << endl;
   cout << "---Cannot perform this operation---" << endl;
+  cout << "-----------------------" << endl;
   Success:
   ticket = ticket;
 }
@@ -69,6 +70,7 @@ void FlightBooking::cancelReservations(int Number) {
   }
   cout << "-----------------------" << endl;
   cout << "---Cannot perform this operation---" << endl;
+  cout << "-----------------------" << endl;
   Success:
   Number = Number;
 }
@@ -76,16 +78,19 @@ bool FlightBooking::Checker(){
   if(prectangle(this -> capacity, this -> reserved)>106){
     cout << "-----------------------" << endl;
     cout << "---Cannot perform this operation---" << endl;
+    cout << "-----------------------" << endl;
     return true;
   }
   if(this -> capacity < 0 || this -> reserved < 0){
     cout << "-----------------------" << endl;
     cout << "---Cannot perform this operation---" << endl;
+    cout << "-----------------------" << endl;
     return true;
   }
   if(this -> id < 1){
     cout << "-----------------------" << endl;
     cout << "---Incorrect ID---" << endl;
+    cout << "-----------------------" << endl;
     return true;
   }
   return false;
@@ -106,7 +111,7 @@ int main(){
   int number;
   int IDrecord;
   int j, i;
-  string term;
+  string temp;
   string command = "";
 
   FlightBooking booking[10];
@@ -121,13 +126,13 @@ int main(){
     
     if(command[0] == 'c' && command[1] == 'r'){
       for(i = command.length()-1; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         argument += number * pow(10, j);
       }
       for(i--, j=0; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         IDargument += number * pow(10, j);
       }
       for(i = 0; i<10; i++){
@@ -140,49 +145,55 @@ int main(){
           }else{
             cout << "-----------------------" << endl;
             cout << "---Incorrect ID---" << endl;
+            cout << "-----------------------" << endl;
             break;
           }
         }
         if(i==9){
           cout << "-----------------------" << endl;
           cout << "---Maximum flights number---" << endl;
+          cout << "-----------------------" << endl;
         }
       }
 
     }else if (command[0] == 'd'){
       for(i = command.length()-1; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         IDargument += number * pow(10, j);
       }
       for(i = 0; i<10; i++){
         if(IDargument == booking[i].get_id()){
-          if(!booking->Checker()){
+          if(!booking[i].Checker()){
             booking[i].deleteFlight();
           }
           break;
         }
-        if(i==10){
+        if(i==9){
+          cout << "-----------------------" << endl;
         cout << "---No flight with ID " << IDargument << " ---" << endl;
+          cout << "-----------------------" << endl;
         }
       }
       
     }else if (command[0] == 'l'){
       cout << "-----------------------" << endl << "List: " << endl << "-----------------------" << endl;
       for(i = 0; i<10; i++){
-        booking[i].get();
+        if(booking[i].get_id() != 0){
+          booking[i].get();
+        }
       }
       cout << "-----------------------" << endl;
       
     }else if(command[0] == 'a'){
       for(i = command.length()-1; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         argument += number * pow(10, j);
       }
       for(i--, j=0; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         IDargument += number * pow(10, j);
       }
       for(i = 0; i<10; i++){
@@ -191,19 +202,21 @@ int main(){
           break;
         }
         if(i==10){
+          cout << "-----------------------" << endl;
         cout << "---No flight with ID " << IDargument << " ---" << endl;
+          cout << "-----------------------" << endl;
         }
       }
       
     }else if(command[0] == 'c' && command[1] == 'a'){
       for(i = command.length()-1; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         argument += number * pow(10, j);
       }
       for(i--, j=0; command[i] != ' '; i--, j++){
-        term = command[i];
-        number = stoi(term);
+        temp = command[i];
+        number = stoi(temp);
         IDargument += number * pow(10, j);
       }
       for(i = 0; i<10; i++){
@@ -212,7 +225,9 @@ int main(){
           break;
         }
         if(i==10){
-        cout << "---No flight with ID " << IDargument << " ---" << endl;
+          cout << "-----------------------" << endl;
+          cout << "---No flight with ID " << IDargument << " ---" << endl;
+          cout << "-----------------------" << endl;
         }
       }
 
