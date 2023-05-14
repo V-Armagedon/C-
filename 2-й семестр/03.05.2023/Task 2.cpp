@@ -9,20 +9,19 @@ class Fraction{
   public:
     Fraction(int numerator, int denominator);
     string toString();
-    double toDouble();
+    double toDouble();double Double;
 void set(int, int);
   private:
     int numerator;
     int denominator;
-    double Double;
+    
     string String;
 };
-// implement Fraction methods
 Fraction::Fraction(int numerator, int denominator){
   set(numerator, denominator);
 }
 string Fraction::toString(){
-  setprecision(2);
+  Fraction::toDouble();
   int i = 0;
   if(this -> denominator < 0){
     this -> denominator *= (-1);
@@ -59,9 +58,16 @@ void Fraction::set(int numerator, int denominator){
   this -> denominator = denominator;
 }
 
+double Fraction::toDouble(){
+  setprecision(2);
+  this -> Double = (double) this -> numerator / (double) this -> denominator;
+  return this -> Double;
+}
+
 int main(void) {
   int num, den, Itemp, i, j;
   string Stemp;
+  double Dtemp;
   string input = "";
   Fraction fraction(num, den);
   
@@ -87,9 +93,8 @@ int main(void) {
       }
     }
     fraction.set(num, den);
-    cout << fraction.toString() << " is " 
-      //<< fraction.toDouble() 
-      << "in decimal" << endl;
+   Dtemp = fraction.toDouble();
+    cout << fraction.toString() << " is " << Dtemp << " in decimal" << endl;
   } 
   
   return 0;
