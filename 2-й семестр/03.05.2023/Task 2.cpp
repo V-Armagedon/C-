@@ -9,8 +9,9 @@ class Fraction{
   public:
     Fraction(int numerator, int denominator);
     string toString();
-    double toDouble();double Double;
-void set(int, int);
+    double toDouble();
+    double Double;
+    void set(int, int);
   private:
     int numerator;
     int denominator;
