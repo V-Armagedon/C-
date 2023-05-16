@@ -40,6 +40,7 @@ IPAddressChecked::IPAddressChecked(string ip){
 int main() {
   string IPaddress;
   while(1){
+    cout << "Enter IP address: ";
     cin >> IPaddress;
     IPAddressChecked ipCh(IPaddress);
     cout << "Entered ip address: ";
